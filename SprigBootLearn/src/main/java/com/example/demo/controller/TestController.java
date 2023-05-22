@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,5 +12,10 @@ public class TestController {
 	@GetMapping("/index")
 	public String index(Model model) {
 		return "index";
+	}
+		
+	@GetMapping("/login")
+	public String login(Model model) {
+		return "loginPage";
 	} 
 }
