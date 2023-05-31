@@ -4,6 +4,8 @@ import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -16,7 +18,7 @@ public class SecurityConfig {
 		http.formLogin(login -> login			//フォーム認証の設定変数をラムダ式で更新
 				.loginProcessingUrl("/login")	//フォームのパラメータを送るURL
 				.loginPage("/login")			//ログイン画面のURL
-				.defaultSuccessUrl("home")		//ログイン成功時の遷移URL
+				.defaultSuccessUrl("/home")		//ログイン成功時の遷移URL
 				.failureUrl("/login?error")		//ログイン失敗時の遷移URL
 				.permitAll()		
 		
@@ -39,5 +41,12 @@ public class SecurityConfig {
 		//mvcMatchersで記載していたが、6.0で非推奨になったため変更
 		//permitAllの代わりに.ignoringが使われていたらしいが、Springが全く監視しなくなるため非推奨
 		return http.build();
+	}
+	
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+		// https://www.docswell.com/s/MasatoshiTada/KGVY9K-spring-security-intro#p35
 	}
 }
