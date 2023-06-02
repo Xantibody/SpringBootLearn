@@ -1,2 +1,8 @@
-https://www.docswell.com/s/MasatoshiTada/KGVY9K-spring-security-intro#p27<h1>index.htmlです</h1>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<h1>index.htmlです</h1>
 <a href="/login">ログイン画面へ</a>
+<p sec:authorize="authenticated">ようこそ<span sec:authentication="principal.loginUser.name">ユーザー</span>さん</p>
+<!--        <form sec:authorize="authenticated" method="post" action="index.html" th:action="@{/logout}">
+        <button type="submit">ログアウト</button>
+-->

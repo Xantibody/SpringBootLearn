@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	  <p sec:authorize="authenticated">認証済み</p>
 	  <p sec:authorize="hasRole('ADMIN')">ADMINユーザー</p>
 	  <span sec:authetication="principal.loginUser.name"></span>
 	  <!--https://www.docswell.com/s/MasatoshiTada/KGVY9K-spring-security-intro#p33-->
-		userDetail作成、べた書きインスタンス作成でDB使わない、表示
+		//userDetail作成、べた書きインスタンス作成でDB使わない、表示
 </html>
