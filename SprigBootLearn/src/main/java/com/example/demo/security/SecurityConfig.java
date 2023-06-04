@@ -23,7 +23,7 @@ public class SecurityConfig {
                 login // フォーム認証の設定変数をラムダ式で更新
                     .loginProcessingUrl("/login") // フォームのパラメータを送るURL
                     .loginPage("/login") // ログイン画面のURL
-                    .defaultSuccessUrl("/") // ログイン成功時の遷移URL
+                    .defaultSuccessUrl("/home") // ログイン成功時の遷移URL
                     .failureUrl("/login?error") // ログイン失敗時の遷移URL
                     .permitAll()
 
@@ -39,7 +39,7 @@ public class SecurityConfig {
                 authz
                     .requestMatchers(PathRequest.toStaticResources().atCommonLocations())
                     .permitAll() // 拡張子がcssやjsの物は許可する
-                    .requestMatchers("/index")
+                    .requestMatchers("/")
                     .permitAll()
                     .requestMatchers("/general")
                     .hasRole("GENERAL") // GENERALのロールがアクセス可能

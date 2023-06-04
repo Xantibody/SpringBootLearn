@@ -20,4 +20,14 @@ public class TestController {
   public String home() {
     return "home";
   }
+
+  @GetMapping("/general")
+  public String general() {
+    return "general";
+  }
+
+  @GetMapping("/admin")
+  public String admin() {
+    return "admin";
+  }
 }

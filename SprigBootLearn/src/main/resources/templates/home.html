@@ -3,7 +3,11 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	  <p sec:authorize="authenticated">認証済み</p>
 	  <p sec:authorize="hasRole('ADMIN')">ADMINユーザー</p>
+	  <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin}">admin権限ページ</a>
+	  <p sec:authorize="hasRole('GENERAL')">GENERALユーザー</p>
+	  <a sec:authorize="hasRole('GENERAL')" th:href="@{/general}">general権限ページ</a>
 	  <span sec:authetication="principal.loginUser.name"></span>
-	  <!--https://www.docswell.com/s/MasatoshiTada/KGVY9K-spring-security-intro#p33-->
-		//userDetail作成、べた書きインスタンス作成でDB使わない、表示
+	  <p sec:authorize="authenticated">ようこそ<span sec:authentication="principal.loginUser.name">ユーザー</span>さん</p>
+        <form sec:authorize="authenticated" method="post" action="index.html" th:action="@{/logout}">
+        <button type="submit">ログアウト</button>
 </html>

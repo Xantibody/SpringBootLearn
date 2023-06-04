@@ -28,5 +28,3 @@ public class LoginUserDetailsService implements UserDetailsService {
         .orElseThrow(() -> new UsernameNotFoundException("not found"));
   }
 }
-// 実装準備終了？？
-// https://www.docswell.com/s/MasatoshiTada/KGVY9K-spring-security-intro#p44
